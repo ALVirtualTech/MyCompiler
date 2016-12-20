@@ -317,6 +317,24 @@ namespace Compiler.Fasm
 			}
 
 			outs.WriteLine("start:");
+            outs.WriteLine("read:\t\t\t\t\t\n" +
+                "\txor eax,eax\t\t\t\n" +
+                "\txor edx,edx\t\t\t\n" +
+                "\tcall clrscr\n" +
+                "\tmov ah,9\t\t\t\n" +
+                "\tmov dx,offset message1\t\t\t\n" +
+                "\tint 21h\t\t\t\t\n" +
+                "\tmov ah,08h\t\t\t\t\t\n" +
+                "\tint 21h\t\t\t\t\n" +
+                "\tcmp al,'+'\t\t\t \n" +
+                "\tje cloj\t\t\t\t\n" +
+                "\tcmp al,'-'\t\t\t\n" +
+                "\tje vich\t\t\t\t\n" +
+                "\tcmp al,'/'\n" +
+                "\tje dele\t\t\t\t\n" +
+                "\tcmp al,'*'\n" +
+                "\tje rr1\t\t\t\t\t\t\t\t\n" +
+                "\tjmp rr\t\t");
 			outs.WriteLine("\tfninit");
 			outs.WriteLine("\tcld");
 			outs.WriteLine("\tcall main");
