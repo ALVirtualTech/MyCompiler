@@ -1,0 +1,14 @@
+
+void func() {
+	printf("%s", "Hello!");
+}
+
+void (*f)();
+void (*pf[10])();
+void (**ppf)();
+int main() {
+	f = func;
+	f();
+	*(pf + 1) = f;
+	(*(pf + 1))();
+}
